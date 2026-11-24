@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090b12" />
+  <title>BENET — The web, handled.</title>
+  <link rel="icon" href="benet-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="BENET home"><span class="brand-logo-wrap"><img class="brand-logo" src="benet-logo.png" alt="BENET"><span class="brand-logo-scan"></span></span></a>
+      <button class="workspace-label command-palette-trigger" id="paletteTrigger" type="button">WORKSPACE <span>⌘ K</span></button>
+      <nav class="nav">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span> Overview</button>
+        <button class="nav-item" data-view="research"><span class="nav-icon">⌕</span> Research agent</button>
+        <button class="nav-item" data-view="compare"><span class="nav-icon">⇄</span> Compare anything</button>
+        <button class="nav-item" data-view="automate"><span class="nav-icon">↗</span> Web actions <span class="nav-pill">BETA</span></button>
+      </nav>
+      <div class="sidebar-divider"></div>
+      <div class="workspace-label">YOUR SPACE</div>
+      <button class="nav-item" data-view="saved"><span class="nav-icon">▤</span> Saved discoveries</button>
+      <button class="nav-item" data-view="history"><span class="nav-icon">◷</span> Activity history</button>
+      <div class="sidebar-bottom">
+        <div class="upgrade-card"><div class="upgrade-spark">✳</div><strong>Make the web work for you.</strong><p>One intent. A dozen tabs. Zero chaos.</p><button id="learnMore">Explore BENET <span>↗</span></button></div>
+        <div class="profile"><div class="avatar">N</div><div><strong>Guest workspace</strong><small>Local demo mode</small></div><span class="profile-menu">···</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <b id="pageName">Overview</b></div><div class="top-actions"><span class="status"><i></i> SYSTEM ONLINE</span><button class="help-btn" title="Help">?</button></div></header>
+      <section class="content" id="overviewView">
+        <div class="hero-row">
+          <div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL WEB OPERATOR <span class="track-tag">TRACK 02 · BEYOND THE BROWSER</span></div><h1>The web is vast.<br><em>Your time isn't.</em></h1><p class="hero-copy">Ask BENET a question. It checks for a direct web answer, brings back available source links, and offers full search when no instant answer exists.</p></div>
+        </div>
+
+        <div class="command-panel">
+          <div class="command-top"><span class="command-indicator"><i></i> NEW MISSION</span><span class="shortcut">KEYLESS WEB LOOKUP <b>↗</b></span></div>
+          <label for="prompt">What would you like to get done?</label>
+          <div class="prompt-input-wrap"><textarea id="prompt" rows="2" placeholder="e.g. Find the best AI laptops under ₹80,000, compare 5 options, and recommend one for a student..."></textarea><button class="mic-btn" id="micBtn" type="button" title="Use voice command" aria-label="Use voice command"><span class="mic-icon">◉</span><span class="voice-wave"><i></i><i></i><i></i><i></i></span></button></div>
+          <div class="command-bottom"><div class="prompt-tools"><button class="tool-chip" id="attachBtn">＋ Add context</button><span class="context-note" id="contextNote"></span></div><button class="run-btn" id="runAgent">Run BENET <span>↗</span></button></div>
+          <div class="suggestions"><span>TRY:</span><button data-prompt="Plan a 3-day budget trip to Goa with beaches, transport and stays.">Plan a trip</button><button data-prompt="Research the best AI/ML internships for engineering students and organise the requirements.">Find opportunities</button><button data-prompt="Compare the top 5 noise-cancelling headphones under ₹15,000.">Compare products</button></div>
+        </div>
+
+        <div class="section-heading"><div><div class="eyebrow">CAPABILITIES</div><h2>From open tabs to outcomes.</h2></div><span class="section-note">ONE AGENT. MANY POSSIBILITIES.</span></div>
+        <div class="capability-grid">
+          <article class="cap-card" data-view-card="research"><div class="cap-icon purple">⌕</div><div class="cap-meta">01 / DISCOVER</div><h3>Web answers</h3><p>Check for instant answers, see related sources, and open full search when needed.</p><button class="card-link">Start researching <span>↗</span></button><div class="card-glow"></div></article>
+          <article class="cap-card" data-view-card="compare"><div class="cap-icon cyan">⇄</div><div class="cap-meta">02 / DECIDE</div><h3>Smart comparison</h3><p>Turn scattered specs, prices and reviews into a decision you can stand behind.</p><button class="card-link">Compare options <span>↗</span></button><div class="card-glow"></div></article>
+          <article class="cap-card" data-view-card="automate"><div class="cap-icon orange">↗</div><div class="cap-meta">03 / DO</div><h3>Action workflows</h3><p>Break complex online tasks into steps, prepare forms and keep you in control.</p><button class="card-link">Explore actions <span>↗</span></button><div class="card-glow"></div></article>
+        </div>
+
+        <div class="bottom-grid">
+          <div class="panel recent-panel"><div class="panel-head"><div><div class="eyebrow">YOUR WORKSPACE</div><h3>Recent missions</h3></div><button class="text-btn" data-view="history">View all ↗</button></div>
+            <div class="mission-row"><div class="mission-icon">⌕</div><div class="mission-info"><strong>AI internship landscape 2026</strong><small>Research · 8 sources · 4 min ago</small></div><span class="complete">COMPLETE</span><span class="row-arrow">↗</span></div>
+            <div class="mission-row"><div class="mission-icon cyan-bg">⇄</div><div class="mission-info"><strong>Student laptop shortlist</strong><small>Comparison · 5 options · Yesterday</small></div><span class="complete">COMPLETE</span><span class="row-arrow">↗</span></div>
+            <div class="mission-row"><div class="mission-icon orange-bg">↗</div><div class="mission-info"><strong>Conference registration checklist</strong><small>Action plan · 6 steps · 2 days ago</small></div><span class="draft">SAVED</span><span class="row-arrow">↗</span></div>
+          </div>
+          <div class="panel impact-panel"><div class="eyebrow">THE BENET DIFFERENCE</div><h3>Less browsing.<br><em>More doing.</em></h3><div class="metric"><strong>1 → ∞</strong><span>One intent, connected web journeys</span></div><div class="metric"><strong>YOU</strong><span>Always in control of final actions</span></div><div class="impact-foot"><span class="pulse"></span> BUILT AROUND HUMAN INTENT</div></div>
+        </div>
+        <footer>© 2026 BENET LABS <span>DESIGNED TO MAKE THE INTERNET FEEL SMALLER.</span><span>DEMO EXPERIENCE · V0.1</span></footer>
+      </section>
+
+      <section class="content hidden" id="agentView">
+        <div class="eyebrow"><span class="eyebrow-line"></span> BENET MISSION CONTROL</div>
+        <div class="agent-heading"><div><h1 id="agentTitle">Your mission is underway.</h1><p id="agentSubtitle">BENET is turning your intent into a clear result.</p></div><span class="live-tag"><i></i> LIVE SIMULATION</span></div>
+        <div class="agent-layout">
+          <div class="panel progress-panel"><div class="panel-head"><div><div class="eyebrow">EXECUTION TRACE</div><h3>What BENET is doing</h3></div><span class="progress-count" id="progressCount">0 / 4</span></div><div class="progress-track"><span id="progressBar"></span></div><div id="steps" class="steps"></div></div>
+          <div class="panel mini-browser-panel"><div class="browser-head"><div><i></i><i></i><i></i></div><span>benet://web-preview</span></div><div class="mini-tabs" id="miniTabs"><button class="mini-tab active"><span>◉</span><b>Search</b></button><button class="mini-tab"><span>G</span><b>Sources</b></button><button class="mini-tab"><span>⇄</span><b>Compare</b></button><button class="mini-tab"><span>✳</span><b>BENET</b></button></div><div class="mini-page" id="miniPage"><div class="scan-line"></div><div class="mini-search"><span>Explore the web</span><i></i></div><div class="mini-lines"><b></b><b></b><b></b><b></b></div><div class="mini-highlight"></div><div class="mini-result"><span>✳</span><div><strong>Useful detail found</strong><small>Connecting to your mission</small></div></div></div></div>
+          <div class="panel sources-panel"><div class="eyebrow">CONNECTED CONTEXT</div><h3>Source intelligence</h3><div class="source-item"><span class="source-favicon">D</span><div><strong>DuckDuckGo Instant Answers</strong><small>Checking for a direct answer</small></div><span class="source-state">LIVE</span></div><div class="source-item"><span class="source-favicon blue">W</span><div><strong>Wikipedia summaries</strong><small>Fallback for general topic questions</small></div><span class="source-state">READY</span></div><div class="source-item"><span class="source-favicon orange">✳</span><div><strong>BENET result view</strong><small>Preparing answers and search links</small></div><span class="source-state">ACTIVE</span></div><div class="privacy-note">◈ <span>Human approval stays in the loop. BENET prepares actions; you decide what gets submitted.</span></div></div>
+        </div>
+        <div class="panel result-panel hidden" id="resultPanel"><div class="result-top"><div><div class="eyebrow">MISSION OUTPUT</div><h2 id="resultTitle">Your web, distilled.</h2></div><span class="complete">MISSION COMPLETE</span></div><div class="result-body"><div class="result-summary"><div class="result-symbol">✳</div><div><h3>A clearer path forward.</h3><p id="resultText">BENET has organised the task into a useful starting point.</p></div></div><div class="result-columns"><div><small>WHAT YOU GET</small><ul><li>Key findings grouped by relevance</li><li>Source-aware notes and next steps</li><li>A concise recommendation</li></ul></div><div><small>WHAT HAPPENS NEXT</small><ul><li>Review the prepared output</li><li>Adjust anything that needs your input</li><li>Approve external actions yourself</li></ul></div></div><button class="run-btn" id="newMission">Start another mission ↗</button></div></div>
+        <footer>© 2026 BENET LABS <span>DEMO AGENT · SIMULATED EXECUTION</span><span>V0.1</span></footer>
+      </section>
+
+      <section class="content hidden" id="featureView">
+        <div class="workspace-header"><div><div class="eyebrow"><span class="eyebrow-line"></span><span id="workspaceEyebrow">BENET WORKSPACE</span></div><h1 id="workspaceTitle"></h1><p id="workspaceDesc"></p></div><span class="workspace-stamp" id="workspaceStamp"></span></div>
+        <div id="workspaceContent"></div>
+        <footer>© 2026 BENET LABS <span>DEMO EXPERIENCE · V0.1</span><span>BUILT FOR THE OPEN WEB</span></footer>
+      </section>
+    </main>
+  </div>
+  <div class="modal-backdrop hidden" id="approvalModal" role="dialog" aria-modal="true" aria-labelledby="approvalTitle">
+    <div class="approval-card"><div class="approval-status"><i></i> HUMAN APPROVAL REQUIRED</div><div class="approval-icon">↗</div><h2 id="approvalTitle">BENET prepared the action.</h2><p id="approvalText">Review the details before BENET continues.</p><div class="approval-details"><span><small>FIELDS PREPARED</small><strong id="approvalFields">6</strong></span><span><small>SENSITIVE ACTIONS</small><strong>Awaiting you</strong></span></div><div class="approval-actions"><button class="modify-btn" id="modifyAction" type="button">Modify</button><button class="approve-btn" id="approveAction" type="button">Approve &amp; Continue <b>↗</b></button></div></div>
+  </div>
+  <div class="modal-backdrop hidden" id="paletteModal" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="command-palette"><div class="palette-search"><span>⌕</span><input id="paletteInput" type="text" placeholder="Search commands or demo missions..." autocomplete="off"><kbd>ESC</kbd></div><div class="palette-results" id="paletteResults"></div></div>
+  </div>
+  <div class="modal-backdrop hidden" id="autofillModal" role="dialog" aria-modal="true" aria-labelledby="autofillTitle">
+    <div class="autofill-card"><div class="approval-status"><i></i> PREPARED AUTO-FILL</div><h2 id="autofillTitle">Opportunity application preview</h2><div id="autofillFields"></div><button class="approve-btn" id="closeAutofill" type="button">Close preview</button></div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
